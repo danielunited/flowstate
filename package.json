@@ -43,5 +43,8 @@
   },
   "sn": {
     "main": "build/index.html"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
