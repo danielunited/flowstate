@@ -1,0 +1,67 @@
+.focus-popup-container {
+  background: rgb(0 0 0 / 62%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-popup-content-container {
+  max-width: 460px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.focus-popup-time-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-popup-submit {
+  background: #000;
+  border: 0;
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: white;
+  width: 100%;
+  margin-top: 25px;
+}
+
+p {
+}
+
+.focus-popup-content p {
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+h1 {
+}
+
+.focus-popup-content h1 {
+  margin: 0 0 20px 0;
+}
+
+input.focus-popup-time-input {
+  text-align: center;
+  border: none;
+  font-size: 48px;
+}
+
+.focus-popup-time-btn {
+  height: 48px;
+  width: 48px;
+  font-size: 32px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border: none;
+  border-radius: 100px;
+}

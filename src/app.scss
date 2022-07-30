@@ -1,0 +1,116 @@
+@import "../node_modules/sn-stylekit/dist/stylekit.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&family=Noto+Sans:wght@400;700&display=swap");
+
+:root {
+  --sn-stylekit-sans-serif-font: "Noto Sans Hebrew", "Noto Sans", Arial, sans-serif;
+}
+
+html {
+  font-size: var(--sn-stylekit-base-font-size);
+  background-color: transparent; // to help with seamless transition while loading themes
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--sn-stylekit-editor-font-family);
+  direction: rtl;
+  margin: 10px 35px 0px 35px;
+  // color: var(--sn-stylekit-editor-foreground-color);
+  background-color: transparent;
+  font-size: 16px;
+  max-height: 100vw;
+  overflow-x: hidden;
+}
+
+input {
+  font-family: var(--sn-stylekit-editor-font-family);
+}
+
+p {
+  line-height: 1.7em;
+}
+
+img {
+  width: 100%;
+}
+
+* {
+  // To prevent gray flash when focusing input on mobile Safari
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.app-button-container {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #ddd;
+  border-radius: 100px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  background: white;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 20%);
+  margin-top: 12px;
+  transition: all 120ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-button:hover {
+  background: #e2e1e1;
+}
+
+.App {
+  iframe {
+    border: none;
+    border-radius: 4px;
+  }
+  .scrollable-wrapper .scrollable {
+    overflow-x: auto;
+  }
+  .gKsMQS li p:first-child {
+    word-break: break-word;
+  }
+
+  /* If the first entry in the document is a header, then we want to remove the large header top
+  margin. This is a little tricky, as the first immediate element when that situation occurs
+  is a hidden <a> element. We want to be able to say with css "give me the first adjacent sibling
+  pair of a + h1, but only if it is the very first pair of children under the main panel",
+  but that doesn't seem to be directly possible.
+  https://stackoverflow.com/a/14892952
+
+  We can get a fairly good approximation to just set the margin-top of the second element to 0px.
+  If it is anything other than a header, it has a 0px margin-top anyway.
+   */
+  .gKsMQS {
+    .heading-actions {
+      background: var(--sn-stylekit-background-color);
+    }
+    .ProseMirror {
+      :nth-child(2) {
+        margin-top: 0px;
+      }
+    }
+  }
+}
+
+.GyAeWb {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.s6JM6d {
+  max-width: 680px;
+  width: 100%;
+}
