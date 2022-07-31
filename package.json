@@ -6,7 +6,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/user-event": "^14.3.0",
     "filesafe-embed": "^1.0.10",
     "filesafe-js": "^1.0.4",
     "flowstate-editor": "^1.0.6",
