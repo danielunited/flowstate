@@ -16,7 +16,7 @@
     "react-twitter-embed": "^3.0.3",
     "sass": "^1.49.0",
     "sn-components-api": "^1.2.8",
-    "sn-stylekit": "^2.2.1",
+    "sn-stylekit": "^5.2.21",
     "styled-components": "^5.2.3"
   },
   "scripts": {
