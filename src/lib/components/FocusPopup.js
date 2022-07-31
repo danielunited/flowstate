@@ -9,13 +9,16 @@ export default class FocusPopup extends React.Component {
           <div className="focus-popup-content">
             <h1>הכנס לפלואו</h1>
             <p>
-              מצב זרימה (באנגלית: Flow) הוא מה שקורה כשאתה שקוע במה שאתה עושה. המחשבות זורמות ממך בקלות והכל מתחבר יחד. כדי לעזור לך להגיע לשם, נגדיר פרק זמן שבו תהיה מוכרח לכתוב -- אחרת, כל מה שכתבת
-              יעלם כאילו ולא היה. זה מפחיד, מסוכן, אבל גם אפקטיבי בצורה יוצאת דופן.
+              מצב זרימה (באנגלית: Flow state) מתרחש כאשר אתה שקוע במה שאתה עושה, המחשבות זורמות בקלות ונראה שהכל מתחבר יחד. כדי להגיע לשם, תצטרך להפטר מחסמים מנטליים וביקורתיות כלפי העבודה שלך. כדי
+              לעזור לך, נגדיר פרק זמן של כמה דקות שבמהלכם תהיה מוכרח לכתוב — אחרת, אם תחדל ליותר מכמה שניות, כל מה שכתבת ימחק. זה מפחיד, מסוכן, אך גם הוכח כאפקטיבי בצורה יוצאת דופן.
             </p>
             <form>
               <div className="focus-popup-time-container">
                 <button className="focus-popup-time-btn">+</button>
-                <input type="number" min="1" max="120" className="focus-popup-time-input" value="5" />
+                <div className="focus-popup-time-input-container">
+                  <input type="number" min="1" max="120" className="focus-popup-time-input" value="5" />
+                  <div className="focus-popup-time-minute-indicator">דקות</div>
+                </div>
                 <button className="focus-popup-time-btn">-</button>
               </div>
               <input type="submit" className="focus-popup-submit" value="כניסה" />
