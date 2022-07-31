@@ -4252,10 +4252,10 @@ filesafe-embed@^1.0.10:
   resolved "https://registry.yarnpkg.com/filesafe-embed/-/filesafe-embed-1.0.10.tgz#23e95275693086c05ad0dedc2d970ff55a64a21c"
   integrity sha512-C1h5T1kLIhiA2AM1rV1mVH+vaKQHL36q9L35uR8r3AvJJ88Xu6P0Urgd2ibI4pcIp3ouy6g0dnXq/d+7cwCyVg==
 
-filesafe-js@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/filesafe-js/-/filesafe-js-1.0.4.tgz#790a42bb760d1acea5a30f8f28a3dd7fdfc8a633"
-  integrity sha512-WdDfxW1sIjjZgUVqtyeBYCB6rD5xIZ8yjClsegvJiwDGo75cBn6V5cTb3aa4LotEysy1FxLNUHokN8jbVqxGuA==
+filesafe-js@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/filesafe-js/-/filesafe-js-1.0.5.tgz#74068d1b59d2aa5df1be6a8cad6feb76d58fb3d5"
+  integrity sha512-AqYirPpw2kFr9tfYWbEfbpGJP/+9FS25mu+8xZjcmTgMP8xeLm8HjjFQYZ+aX1TgsvfP2+bAL8sMNHtjFiM9TQ==
 
 filesize@^8.0.6:
   version "8.0.6"
