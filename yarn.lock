@@ -4334,10 +4334,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
-flowstate-editor@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/flowstate-editor/-/flowstate-editor-1.0.5.tgz#df7596b0cddf7388eed054b304afce433248b91a"
-  integrity sha512-J1VqPSF353gPB7g/gXc6E+jJ9A1iplf9mGgHDQtByPeKiTjLu3wvylnpnah71536QlpUA6RwA3hBq0En+UAELQ==
+flowstate-editor@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/flowstate-editor/-/flowstate-editor-1.0.6.tgz#bd5490948d4c8aa82d1888383c33833ad1b9f4de"
+  integrity sha512-eJia7TcoLr9sfROFNsqOSAqOs+Y8EouZmVzSmf8jwmHJlRD5ZXMagx0EIsl4H5wFy1BOFDO4d0b04i5H6LGw0A==
   dependencies:
     copy-to-clipboard "^3.0.8"
     fuzzy-search "^3.2.1"
