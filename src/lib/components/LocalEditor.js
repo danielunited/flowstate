@@ -1,6 +1,6 @@
 import React from "react";
 import { debounce } from "lodash";
-import RichMarkdownEditor from "flowstate-editor-temp-2";
+import RichMarkdownEditor from "flowstate-editor";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import BridgeManager from "../BridgeManager";
 import theme from "../theme";
