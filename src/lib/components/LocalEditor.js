@@ -25,7 +25,10 @@ class YoutubeEmbed extends React.Component {
 
 class ImageEmbed extends React.Component {
   render() {
-    return <img src="https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png" />;
+    const { attrs } = this.props;
+    const imageUrl = attrs.matches[1];
+
+    return { imageUrl };
   }
 }
 
