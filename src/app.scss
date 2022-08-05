@@ -26,12 +26,14 @@ html {
 }
 
 body {
-  font-family: var(--sn-stylekit-editor-font-family);
+  font-family: var(--sn-stylekit-sans-serif-font);
   direction: rtl;
   margin: 10px 35px 0px 35px;
   // color: var(--sn-stylekit-editor-foreground-color);
   background-color: transparent;
   font-size: 16px;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 input {
@@ -52,7 +54,7 @@ img {
 }
 
 .app-button-container {
-  position: fixed;
+  position: absolute;
   bottom: 18px;
   left: 18px;
   display: flex;
