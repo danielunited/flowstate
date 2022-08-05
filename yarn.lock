@@ -4269,10 +4269,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.4.tgz#28d9969ea90661b5134259f312ab6aa7929ac5e2"
   integrity sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==
 
-flowstate-editor@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/flowstate-editor/-/flowstate-editor-1.0.7.tgz#c297864fbb96309ace7c3243163936d9c7c6295c"
-  integrity sha512-wlQPxCr+e3vcm9uzAA/6aaDjjuPa6/KxSyyl49J8H38BVWVPu8IR98P4ay4sD1tAq3GL66l0a1Oe3HFYz7md1g==
+flowstate-editor@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/flowstate-editor/-/flowstate-editor-1.0.12.tgz#369cede1de7df6e8c66e8949164123d7e7220156"
+  integrity sha512-sh4+rCbhJf9k0eMFVLo853ZXwJgt5dVxSEPA5bitParXWZTB4c7l1KbhkzHpRYG8RrQt452WUvvQbhS1DgMPeQ==
   dependencies:
     copy-to-clipboard "^3.0.8"
     fuzzy-search "^3.2.1"
@@ -4300,7 +4300,7 @@ flowstate-editor@^1.0.7:
     react-portal "^4.2.1"
     refractor "^3.6.0"
     resize-observer-polyfill "^1.5.1"
-    slugify "^1.4.0"
+    slugify "^1.6.5"
     smooth-scroll-into-view-if-needed "^1.1.29"
 
 follow-redirects@^1.0.0:
@@ -7967,7 +7967,7 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-slugify@^1.4.0:
+slugify@^1.6.5:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.5.tgz#c8f5c072bf2135b80703589b39a3d41451fbe8c8"
   integrity sha512-8mo9bslnBO3tr5PEVFzMPIWwWnipGS0xVbYf65zxDqfNwmzYn1LpiKNrR6DlClusuvo+hDHd1zKpmfAe83NQSQ==
