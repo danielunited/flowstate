@@ -6,6 +6,7 @@ export default class FlowButton extends React.Component {
     return (
       <button className="app-button">
         <img src={brain} alt="מצב זרימה" />
+        <span className="app-button-tooltip">הכנס לפלואו</span>
       </button>
     );
   }
