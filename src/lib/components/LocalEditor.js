@@ -86,7 +86,7 @@ export default class LocalEditor extends React.Component {
           <RichMarkdownEditor
             dir="rtl"
             placeholder="ספר את הסיפור שלך..."
-            disableExtensions={["highlight", "container_notice"]}
+            disableExtensions={["highlight", "container_notice", "table", "checkbox_list", "checkbox_item"]}
             ref={this.setEditorRef}
             value={this.state.markdown}
             autoFocus

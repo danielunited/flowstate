@@ -11,24 +11,24 @@ const colors = {
   grey: "#E8EBED",
   greyMid: "#C5CCD3",
   greyDark: "#DAE1E9",
+  lightCodeBackground: "#F7F6F3",
+  darkCodeBackground: "202020",
 };
 
 export const base = {
   ...colors,
-  fontFamily:
-    "var(--sn-stylekit-sans-serif-font)",
-  fontFamilyMono:
-    "'SFMono-Regular',Consolas,'Liberation Mono', Menlo, Courier,monospace",
+  fontFamily: "var(--sn-stylekit-sans-serif-font)",
+  fontFamilyMono: "'SFMono-Regular',Consolas,'Liberation Mono', Menlo, Courier,monospace",
   fontWeight: 400,
   zIndex: 100,
-  link: 'var(--sn-stylekit-info-color)',
-  placeholder: 'var(--sn-stylekit-input-placeholder-color)',
+  link: "var(--sn-stylekit-info-color)",
+  placeholder: "var(--sn-stylekit-input-placeholder-color)",
   textSecondary: "#4E5C6E",
   textLight: colors.white,
-  textHighlight: '#ff0',
+  textHighlight: "#ff0",
   selected: colors.primary,
-  codeComment: 'var(--sn-stylekit-secondary-foreground-color)',
-  codePunctuation: 'var(--sn-stylekit-contrast-backround-color)',
+  codeComment: "var(--sn-stylekit-secondary-foreground-color)",
+  codePunctuation: "var(--sn-stylekit-contrast-backround-color)",
   codeNumber: "#d73a49",
   codeProperty: "#c08b30",
   codeTag: "#3d8fd1",
@@ -36,7 +36,7 @@ export const base = {
   codeSelector: "#6679cc",
   codeAttr: "#c76b29",
   codeEntity: "#22a2c9",
-  codeKeyword: 'var(--sn-stylekit-info-color)',
+  codeKeyword: "var(--sn-stylekit-info-color)",
   codeFunction: "#6f42c1",
   codeStatement: "#22a2c9",
   codePlaceholder: "#3d8fd1",
@@ -61,24 +61,24 @@ export const base = {
 
 export const light = {
   ...base,
-  background: 'transparent',
-  text: 'var(--sn-stylekit-paragraph-text-color)',
-  code: 'var(--sn-stylekit-secondary-foreground-color)',
-  cursor: 'var(--sn-stylekit-contrast-foreground-color)',
+  background: "transparent",
+  text: "var(--sn-stylekit-paragraph-text-color)",
+  code: "var(--sn-stylekit-secondary-foreground-color)",
+  cursor: "var(--sn-stylekit-contrast-foreground-color)",
   divider: colors.greyMid,
 
   toolbarBackground: colors.lightBlack,
   toolbarInput: colors.white10,
   toolbarItem: colors.white,
 
-  tableDivider: 'var(--sn-stylekit-secondary-foreground-color)',
-  tableSelected: 'var(--sn-stylekit-secondary-foreground-color)',
-  tableSelectedBackground: 'var(--sn-stylekit-contrast-background-color)',
+  tableDivider: "var(--sn-stylekit-secondary-foreground-color)",
+  tableSelected: "var(--sn-stylekit-secondary-foreground-color)",
+  tableSelectedBackground: "var(--sn-stylekit-contrast-background-color)",
 
-  quote: 'var(--sn-stylekit-secondary-foreground-color)',
-  codeBackground: 'var(--sn-stylekit-secondary-background-color)',
-  codeBorder: 'var(--sn-stylekit-secondary-foreground-color)',
-  horizontalRule: 'var(--sn-stylekit-input-placeholder-color)',
+  quote: "var(--sn-stylekit-secondary-foreground-color)",
+  codeBackground: colors.lightCodeBackground,
+  codeBorder: colors.lightCodeBackground,
+  horizontalRule: "var(--sn-stylekit-input-placeholder-color)",
   imageErrorBackground: colors.greyLight,
 };
 
