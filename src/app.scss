@@ -79,37 +79,81 @@ img {
   }
 }
 
+@-webkit-keyframes animateHeart {
+  // scale down and scale up faster in irregular intervals to get the throbbing effect
+  0% {
+    transform: rotate(45deg) scale(0.8);
+  }
+  5% {
+    transform: rotate(45deg) scale(0.9);
+  }
+  10% {
+    transform: rotate(45deg) scale(0.8);
+  }
+  15% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(45deg) scale(0.8);
+  }
+}
+
+// @keyframes breathingAnimation {
+//   0% {
+//     transform: scale(1);
+//   }
+//   50% {
+//     transform: scale(0.8);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+
 .flow-info-container {
-  background: #fff;
+  background: #cdf0fd;
+  color: #193347;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 18px;
   border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0px 2px 2px rgb(0 0 0 / 20%);
+  // box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px, rgb(0 0 0 / 8%) 0px 4px 8px, rgb(0 0 0 / 8%) 0px 2px 4px;
   // box-shadow: 0 3px 10px rgb(0 0 0 / 10%), 0 3px 3px rgb(0 0 0 / 5%);
+  height: 32px;
 
   .flow-info {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 18px;
 
-    // .flow-info-indicator {
-    //   height: 12px;
-    //   width: 12px;
-    //   border-radius: 100px;
-    //   margin-left: 8px;
-    //   background: #34684e;
-    // }
+    .flow-info-indicator {
+      height: 12px;
+      width: 12px;
+      border-radius: 100px;
+      margin-left: 8px;
+      background: #d3e5ef;
+      // -webkit-animation: breathingAnimation 2s infinite;
+      // animation: breathingAnimation 2s infinite;
+    }
   }
   .flow-info-button {
-    border: 1px solid black;
+    color: #62a9dd;
+    border: 1px solid #62a9dd;
     background: transparent;
-    border-radius: 4px;
-    padding: 4px 8px;
-    margin-right: 18px;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-right: 24px;
+    margin-left: -6px;
+    transition: all 120ms ease;
+
+    &:hover {
+      background: #62a9dd;
+      color: white;
+    }
   }
 }
 

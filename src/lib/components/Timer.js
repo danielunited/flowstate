@@ -13,12 +13,12 @@ function MyTimer({ expiryTimestamp }) {
   return (
     <div className="flow-info-container">
       <div className="flow-info">
-        <div className="flow-info-indicator"></div>
-        מצב זרימה {isRunning ? "פעיל" : "הסתיים"}
+        {/* <div className="flow-info-indicator"></div> */}
+        {formatTime(minutes)}:{formatTime(seconds)} לפלואו
       </div>
-      <div className="flow-info-timer">
+      {/* <div className="flow-info-timer">
         {formatTime(minutes)}:{formatTime(seconds)}
-      </div>
+      </div> */}
       {isRunning ? (
         <button
           className="flow-info-button"
