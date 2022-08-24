@@ -66,6 +66,7 @@ export default class LocalEditor extends React.Component {
 
   onChange = debounce((value) => {
     const text = value();
+    localStorage.setItem("saved", text);
     let note = this.state.note;
     // note.content.text = text;
     this.setState({ note: note });
@@ -88,7 +89,8 @@ export default class LocalEditor extends React.Component {
             placeholder="ספר את הסיפור שלך..."
             disableExtensions={["highlight", "container_notice", "table", "checkbox_list", "checkbox_item"]}
             ref={this.setEditorRef}
-            value={this.state.markdown}
+            defaultValue={localStorage.getItem("saved") || undefined}
+            // value={this.state.markdown}
             autoFocus
             onChange={this.onChange.bind(this)}
             theme={theme}
