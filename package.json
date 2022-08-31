@@ -13,7 +13,7 @@
     "react-scripts": "^5.0.1",
     "react-timer-hook": "^3.0.5",
     "react-twitter-embed": "^4.0.4",
-    "sass": "^1.54.3",
+    "sass": "^1.54.4",
     "sn-components-api": "^1.2.8",
     "sn-stylekit": "^2.2.1",
     "styled-components": "^5.3.5"
