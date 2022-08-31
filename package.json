@@ -6,7 +6,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^14.4.2",
+    "@testing-library/user-event": "^14.4.3",
     "flowstate-editor": "^1.0.14",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
