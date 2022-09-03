@@ -1,5 +1,5 @@
 import React from "react";
-import "./app.scss";
+import "../styles/app.scss";
 import LocalEditor from "./lib/components/LocalEditor";
 import FlowButton from "./lib/components/FlowButton";
 import SaveButton from "./lib/components/SaveButton";
