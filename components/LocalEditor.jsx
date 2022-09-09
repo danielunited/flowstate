@@ -1,74 +1,30 @@
-import React, {useEffect, useRef, useState} from "react";
 import {debounce} from "lodash";
-// import { TwitterTweetEmbed } from "react-twitter-embed";
-// import BridgeManager from "../BridgeManager";
-// import BridgeManager from "../src/lib/BridgeManager";
 import RichMarkdownEditor from "flowstate-editor";
 import theme from "../constants/theme";
-import {useDidMount} from "../hooks/useDidMount";
-import {TwitterTweetEmbed} from "react-twitter-embed";
+import {useLocalStorage} from "../hooks";
+import {TwitterEmbed} from "./embeds/TwitterEmbed";
+import {YoutubeEmbed} from "./embeds/YoutubeEmbed";
+import {ImageEmbed} from "./embeds/ImageEmbed";
 
-// import BridgeManager from "../src/lib/BridgeManager";
-
-class YoutubeEmbed extends React.Component {
-    render() {
-        const {attrs} = this.props;
-        const videoId = attrs.matches[1];
-
-        return <iframe title={`Youtube Embed ${videoId}`}
-                       src={`https://www.youtube.com/embed/${videoId}?modestbranding=1`}/>;
-    }
-}
-
-class TwitterEmbed extends React.Component {
-    render() {
-        const {attrs} = this.props;
-        const statusId = attrs.matches[1];
-
-        return <TwitterTweetEmbed tweetId={statusId} placeholder={"Loading tweet..."}/>;
-    }
-}
-
-class ImageEmbed extends React.Component {
-    render() {
-        const {attrs} = this.props;
-        const imageUrl = attrs.matches[1];
-
-        return {imageUrl};
-    }
-}
-
+// TODO check with Daniel what setMarkDown function is for
+// TODO check with Daniel why do we need onSearchLink and onClickLink
 
 export const LocalEditor = () => {
-    const [defaultValue, setDefaultValue] = useState("");
-    console.log("-> defaultValue", defaultValue);
-    const didMount = useDidMount()
+    const hookedLocalStorage = useLocalStorage()
 
-    useEffect(() => {
-        setDefaultValue(localStorage.getItem("saved"))
-        // const text = localStorage.getItem("saved")
-        // setDefaultValue(setMarkdown(text))
-    }, [])
-
-
-    const setMarkdown = (text) => {
-        let markdown = text.replace(/(\n{2})(\n+)(?!:::)(?!---)/g, (m, p, q) => p + q.replace(/(\n)/g, "\\$1"));
-        if (markdown === "") {
-            markdown = "\n";
-        }
-        return markdown;
-    }
+    // const setMarkdown = (text) => {
+    //     let markdown = text.replace(/(\n{2})(\n+)(?!:::)(?!---)/g, (m, p, q) => p + q.replace(/(\n)/g, "\\$1"));
+    //     if (markdown === "") {
+    //         markdown = "\n";
+    //     }
+    //     return markdown;
+    // }
 
     const onChange = debounce(value => {
-        // access localStorage only after the component mounted
-        if (!didMount) return;
         const text = value();
-        localStorage.setItem("saved", text);
-        // let note = this.state.note;
-        // note.content.text = text;
-        // setNote({note: note});
-        // BridgeManager.get().save();
+        hookedLocalStorage?.setItem("saved", text);
     }, 100);
+
 
     return (
         <div className="GyAeWb">
@@ -81,7 +37,7 @@ export const LocalEditor = () => {
                     onChange={onChange}
                     theme={theme}
                     className="gKsMQS"
-                    value={defaultValue}
+                    value={hookedLocalStorage?.getItem("saved")}
                     onSearchLink={(searchTerm) => {
                         const results = this.editor.getHeadings();
 
