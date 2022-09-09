@@ -1,5 +1,4 @@
-export const ImageEmbed = () => {
-    const {attrs} = this.props;
+export const ImageEmbed = ({attrs}) => {
     const imageUrl = attrs.matches[1];
 
     return {imageUrl};

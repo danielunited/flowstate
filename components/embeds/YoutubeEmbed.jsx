@@ -1,5 +1,4 @@
-export const YoutubeEmbed = () => {
-    const {attrs} = this.props;
+export const YoutubeEmbed = ({attrs}) => {
     const videoId = attrs.matches[1];
 
     return (
