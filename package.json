@@ -9,6 +9,7 @@
 		"@testing-library/user-event": "^14.4.2",
 		"flowstate-editor": "^1.0.14",
 		"next": "^12.2.5",
+		"prop-types": "^15.8.1",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
 		"react-scripts": "^5.0.1",
