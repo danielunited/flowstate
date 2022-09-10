@@ -12,7 +12,7 @@ const HomePage = () => {
 				<FlowButton />
 				<SaveButton />
 				{/* TODO add future features below */}
-				<FocusPopup />
+				{/*<FocusPopup />*/}
 			</div>
 			{/*<Timer />*/}
 		</div>
