@@ -1,7 +1,4 @@
-import {useDidMount} from "./useDidMount";
-import {useLocalStorage} from "./useLocalStorage";
+import { useDidMount } from './useDidMount';
+import { useLocalStorage } from './useLocalStorage';
 
-export {
-    useDidMount,
-    useLocalStorage
-}
+export { useDidMount, useLocalStorage };

@@ -1,52 +1,52 @@
 {
-  "name": "flowstate",
-  "version": "1.0.0",
-  "homepage": "https://flowstate.co.il/",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^14.4.2",
-    "flowstate-editor": "^1.0.14",
-    "next": "^12.2.5",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "^5.0.1",
-    "react-timer-hook": "^3.0.5",
-    "react-twitter-embed": "^4.0.4",
-    "sass": "^1.54.8",
-    "sn-components-api": "^1.2.8",
-    "sn-stylekit": "^2.2.1",
-    "styled-components": "^5.3.5"
-  },
-  "devDependencies": {
-    "prettier": "^2.7.1"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prettify": "prettier --write .",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "sn": {
-    "main": "build/index.html"
-  }
+	"name": "flowstate",
+	"version": "1.0.0",
+	"homepage": "https://flowstate.co.il/",
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.16.1",
+		"@testing-library/react": "^12.1.2",
+		"@testing-library/user-event": "^14.4.2",
+		"flowstate-editor": "^1.0.14",
+		"next": "^12.2.5",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
+		"react-scripts": "^5.0.1",
+		"react-timer-hook": "^3.0.5",
+		"react-twitter-embed": "^4.0.4",
+		"sass": "^1.54.8",
+		"sn-components-api": "^1.2.8",
+		"sn-stylekit": "^2.2.1",
+		"styled-components": "^5.3.5"
+	},
+	"devDependencies": {
+		"prettier": "^2.7.1"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"prettify": "prettier --write .",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"sn": {
+		"main": "build/index.html"
+	}
 }
