@@ -2,6 +2,7 @@ import {LocalEditor} from "../components/LocalEditor";
 import {FlowButton} from "../components/FlowButton";
 import {SaveButton} from "../components/SaveButton";
 import {FocusPopup} from "../components/focusPopup/FocusPopup";
+import {Timer} from "../components/Timer";
 
 const HomePage = () => {
     return (
@@ -10,8 +11,10 @@ const HomePage = () => {
             <div className="app-button-container">
                 <FlowButton/>
                 <SaveButton/>
-                {/*<FocusPopup />*/}
+                {/* TODO add future features below */}
+                <FocusPopup/>
             </div>
+            {/*<Timer />*/}
         </div>
     );
 };

@@ -1,7 +1,7 @@
 //TODO find a solution for selector "p" is not pure error
 // uncomment the line below after finishing with the css modules error
 
-// import styles from './focusPopup..module.css'
+import styles from './focusPopup..module.scss'
 
 
 //TODO check with Daniel if styles.focusPopupContent works here since there isn't standalone "focus-popup-content" class
