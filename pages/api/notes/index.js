@@ -7,7 +7,6 @@ export default function handler(req, res) {
 		// validate
 
 		createNote(newNote);
-		res.status(401).json({bla: true})
 		res.json({hello: true})
 	} else {
 		console.log('an error has occurred')
