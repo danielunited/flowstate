@@ -1,14 +1,14 @@
-import { createNote } from "../../../lib/api/notes/service";
+import { createNote } from '../../../lib/api/notes/service';
 
 export default function handler(req, res) {
 	if (req.method === 'POST') {
-		const newNote = req.body;
-		console.log("-> newNote", newNote);
+		const { content } = req.body;
 		// validate
 
-		createNote(newNote);
-		res.json({hello: true})
+		const newNote = createNote(content);
+
+		res.json({ note: newNote });
 	} else {
-		console.log('an error has occurred')
+		console.log('an error has occurred');
 	}
 }

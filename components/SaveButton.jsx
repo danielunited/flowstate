@@ -9,7 +9,7 @@ export const SaveButton = () => {
 			url: "/api/notes",
 			method: "POST",
 			data: {
-				test: "My data!!"
+				content: "My data!!"
 			}
 		})
 	};
