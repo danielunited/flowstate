@@ -5,16 +5,33 @@ import { useRouter } from 'next/router';
 
 export const SaveButton = () => {
 	const router = useRouter();
-	console.log("-> router", router);
 
-	const onClick = async () => {
-		const res = apiReq({
+	const createNote = async () => {
+		const res = await apiReq({
 			url: '/api/notes',
 			method: 'POST',
 			data: {
 				content: localStorage.getItem('saved'),
 			},
 		});
+	};
+
+	const updateExistingNote = async () => {
+		const res = await apiReq({
+			url: `/api/notes/${router.query.noteId}`,
+			method: 'PATCH',
+			data: {
+				content: localStorage.getItem('saved'),
+			},
+		});
+	};
+
+	const onClick = async () => {
+		if (router.pathname === '/') {
+			createNote();
+		} else {
+			updateExistingNote();
+		}
 	};
 
 	return <Button image={saveImg} imageAlt="שמירה" text="שמירת פתק" onClick={onClick} />;
