@@ -7,7 +7,9 @@ const MyApp = ({ Component, pageProps }) => {
 			<Head>
 				<title>Next.js template!</title>
 			</Head>
-			<Component {...pageProps} />
+			<div className="App">
+				<Component {...pageProps} />
+			</div>
 		</>
 	);
 };

@@ -1,19 +1,15 @@
 import { LocalEditor } from '../components/LocalEditor';
-import { FlowButton } from '../components/FlowButton';
-import { SaveButton } from '../components/SaveButton';
+import { FlowButton } from '../components/buttons/FlowButton';
+import { SaveButton } from '../components/buttons/SaveButton';
+import { ButtonsMenu } from '../components/buttons/ButtonsMenu';
 
 const NoteId = () => {
 	return (
-		<div className="App">
+		<>
 			<LocalEditor />
-			<div className="app-button-container">
-				<FlowButton />
-				<SaveButton />
-				{/* TODO add future features below */}
-				{/*<FocusPopup />*/}
-			</div>
+			<ButtonsMenu />
 			{/*<Timer />*/}
-		</div>
+		</>
 	);
 };
 
