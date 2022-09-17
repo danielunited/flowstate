@@ -5,7 +5,7 @@ import { ButtonsMenu } from '../components/buttons/ButtonsMenu';
 import { useLocalStorage } from '../hooks';
 import { useEffect } from 'react';
 
-const NoteId = ({ content, mostRecent }) => {
+const NoteId = ({ content, mostRecent, isAuthenticated }) => {
 	useEffect(() => {
 		if (mostRecent) {
 			localStorage.setItem('saved', content);
@@ -15,7 +15,7 @@ const NoteId = ({ content, mostRecent }) => {
 	return (
 		<>
 			<LocalEditor />
-			<ButtonsMenu />
+			<ButtonsMenu isAuthenticated={isAuthenticated} />
 			{/*<Timer />*/}
 		</>
 	);
@@ -37,7 +37,6 @@ export async function getServerSideProps(context) {
 		};
 	}
 	if (!note.mostRecent) {
-		props.mostRecent = note.mostRecent;
 		return {
 			props: {
 				mostRecent: note.mostRecent,
