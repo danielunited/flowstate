@@ -45,7 +45,11 @@ export const SaveButton = () => {
 	return (
 		<>
 			<Button image={saveImg} imageAlt="שמירה" text="שמירת פתק" onClick={onClick} />
-			<SaveNoteModal shouldDisplayModal={shouldDisplayModal} noteId={savedNoteId} />
+			<SaveNoteModal
+				shouldDisplayModal={shouldDisplayModal}
+				setShouldDisplayModal={setShouldDisplayModal}
+				noteId={savedNoteId}
+			/>
 		</>
 	);
 };

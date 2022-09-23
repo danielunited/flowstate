@@ -37,7 +37,7 @@ export const LocalEditor = () => {
 		const text = value();
 		hookedLocalStorage?.setItem('saved', text);
 		if (!didEdit.current) {
-			updateIsEditingStatus()
+			updateIsEditingStatus();
 			didEdit.current = true;
 		}
 	}, 100);
