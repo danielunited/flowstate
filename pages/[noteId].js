@@ -2,7 +2,6 @@ import { LocalEditor } from '../components/LocalEditor';
 import { FlowButton } from '../components/buttons/FlowButton';
 import { SaveButton } from '../components/buttons/SaveButton';
 import { ButtonsMenu } from '../components/buttons/ButtonsMenu';
-import { useLocalStorage } from '../hooks';
 import { useEffect } from 'react';
 
 const NoteId = ({ content, mostRecent, isAuthenticated }) => {

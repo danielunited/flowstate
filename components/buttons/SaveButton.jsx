@@ -2,8 +2,12 @@ import saveImg from '/public/images/save.png';
 import { Button } from '../UI/Button';
 import { apiReq } from '../../lib/utils/apiReq';
 import { useRouter } from 'next/router';
+import { SaveNoteModal } from '../modals/saveNoteModal/SaveNoteModal';
+import { useState } from 'react';
 
 export const SaveButton = () => {
+	const [shouldDisplayModal, setShouldDisplayModal] = useState(false);
+	const [savedNoteId, setSavedNoteId] = useState(null);
 	const router = useRouter();
 
 	const createNote = async () => {
@@ -14,6 +18,10 @@ export const SaveButton = () => {
 				content: localStorage.getItem('saved'),
 			},
 		});
+		if (res.status === 200) {
+			setShouldDisplayModal(true);
+			setSavedNoteId(res.data.id);
+		}
 	};
 
 	const updateExistingNote = async () => {
@@ -34,5 +42,10 @@ export const SaveButton = () => {
 		}
 	};
 
-	return <Button image={saveImg} imageAlt="שמירה" text="שמירת פתק" onClick={onClick} />;
+	return (
+		<>
+			<Button image={saveImg} imageAlt="שמירה" text="שמירת פתק" onClick={onClick} />
+			<SaveNoteModal shouldDisplayModal={shouldDisplayModal} noteId={savedNoteId} />
+		</>
+	);
 };
