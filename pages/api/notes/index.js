@@ -1,12 +1,14 @@
 import { createNote, handleCookieWithToken } from '../../../lib/api/services/notes.service';
 import { apiMiddleware } from '../../../lib/api/middleware';
+import { extractCookie, validateAccessTokenAndGetUser } from '../../../lib/utils/auth';
 
-const postHandler = async (req) => {
+const postHandler = async req => {
 	if (req.method === 'POST') {
 		const { content } = req.body;
-		// validate
+		const { token } = req.cookies;
+		const userData = extractCookie(token);
+		const newNote = await createNote(userData, content);
 
-		const newNoteData = await createNote(content);
 		// const finalCookie = handleCookieWithToken(
 		// 	req.cookies.notesTokens,
 		// 	newNoteData.id,
@@ -14,7 +16,7 @@ const postHandler = async (req) => {
 		// );
 		// res.setHeader('Set-Cookie', finalCookie);
 		// res.json({ id: newNoteData.id });
-		return newNoteData
+		return newNote;
 	} else {
 		console.log('an error has occurred');
 	}
