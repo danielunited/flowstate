@@ -20,7 +20,7 @@ export const SaveButton = () => {
 		});
 		if (res.status === 200) {
 			setShouldDisplayModal(true);
-			setSavedNoteId(res.data.id);
+			setSavedNoteId(res.data._id);
 		}
 	};
 

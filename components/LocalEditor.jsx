@@ -24,12 +24,12 @@ export const LocalEditor = () => {
 	//     return markdown;
 	// }
 
-	const updateIsEditingStatus = () => {
+	const updateInProgressStatus = () => {
 		if (router.pathname === '/') return;
 		apiReq({
 			url: `/api/notes/${router.query.noteId}`,
 			method: 'PATCH',
-			queryParams: { setInEditMode: true },
+			queryParams: { inProgress: true },
 		});
 	};
 
@@ -37,7 +37,7 @@ export const LocalEditor = () => {
 		const text = value();
 		hookedLocalStorage?.setItem('saved', text);
 		if (!didEdit.current) {
-			updateIsEditingStatus();
+			updateInProgressStatus();
 			didEdit.current = true;
 		}
 	}, 100);
