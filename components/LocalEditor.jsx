@@ -5,13 +5,17 @@ import { useLocalStorage } from '../hooks';
 import { TwitterEmbed } from './embeds/TwitterEmbed';
 import { YoutubeEmbed } from './embeds/YoutubeEmbed';
 import { ImageEmbed } from './embeds/ImageEmbed';
+import { useRef } from 'react';
+import { apiReq } from '../lib/utils/apiReq';
+import { useRouter } from 'next/router';
 
 // TODO check with Daniel what setMarkDown function is for
 // TODO check with Daniel why do we need onSearchLink and onClickLink
 
 export const LocalEditor = () => {
 	const hookedLocalStorage = useLocalStorage();
-
+	const router = useRouter();
+	const didEdit = useRef(false);
 	// const setMarkdown = (text) => {
 	//     let markdown = text.replace(/(\n{2})(\n+)(?!:::)(?!---)/g, (m, p, q) => p + q.replace(/(\n)/g, "\\$1"));
 	//     if (markdown === "") {
@@ -20,9 +24,22 @@ export const LocalEditor = () => {
 	//     return markdown;
 	// }
 
+	const updateInProgressStatus = () => {
+		if (router.pathname === '/') return;
+		apiReq({
+			url: `/api/notes/${router.query.noteId}`,
+			method: 'PATCH',
+			queryParams: { inProgress: true },
+		});
+	};
+
 	const onChange = debounce(value => {
 		const text = value();
 		hookedLocalStorage?.setItem('saved', text);
+		if (!didEdit.current) {
+			updateInProgressStatus();
+			didEdit.current = true;
+		}
 	}, 100);
 
 	return (
