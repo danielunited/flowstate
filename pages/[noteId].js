@@ -39,13 +39,6 @@ export const getServerSideProps = serverSidePropsMiddleware(async context => {
 			},
 		};
 	}
-	// if (!note.mostRecent) {
-	// 	return {
-	// 		props: {
-	// 			mostRecent: note.mostRecent,
-	// 		},
-	// 	};
-	// }
 	note = JSON.parse(JSON.stringify(note));
 	return { props: { note } };
 }, {});
