@@ -5,7 +5,7 @@ const MyApp = ({ Component, pageProps }) => {
 	return (
 		<>
 			<Head>
-				<title>Next.js template!</title>
+				<title>Flowstate</title>
 			</Head>
 			<div className="App">
 				<Component {...pageProps} />
