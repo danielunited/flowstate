@@ -2,10 +2,6 @@ import { updateNote } from '../../../lib/api/services/notes.service';
 import { apiMiddleware } from '../../../lib/api/middleware';
 import { extractCookie, handleCookieWithToken } from '../../../lib/utils/auth';
 
-export const config = {
-	runtime: "experimental-edge",
-};
-
 const patchHandler = async (req, res) => {
 	const { noteId, inProgress } = req.query;
 	const { content } = req.body;

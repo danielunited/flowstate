@@ -22,10 +22,6 @@ const NoteId = ({ note, isAuthenticated }) => {
 
 export default NoteId;
 
-export const config = {
-	runtime: "experimental-edge",
-};
-
 export const getServerSideProps = serverSidePropsMiddleware(async context => {
 	// get note data by ID (query param)
 	const { noteId } = context.params;
