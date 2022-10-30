@@ -3,6 +3,10 @@ import { apiMiddleware } from '../../../lib/api/middleware';
 import { extractCookie, handleCookieWithToken } from '../../../lib/utils/auth';
 import { handleUserAfterNoteCreation } from '../../../lib/api/services/user.service';
 
+export const config = {
+	runtime: "experimental-edge",
+};
+
 const postHandler = async (req, res) => {
 	const { content } = req.body;
 	const { token } = req.cookies;
