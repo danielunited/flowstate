@@ -13,7 +13,7 @@ const NoteId = ({ note, isAuthenticated }) => {
 
 	return (
 		<>
-			<LocalEditor />
+			<LocalEditor readOnly={!isAuthenticated} />
 			<ButtonsMenu isAuthenticated={isAuthenticated} />
 			{/*<Timer />*/}
 		</>
@@ -26,6 +26,7 @@ export const getServerSideProps = serverSidePropsMiddleware(async context => {
 	// get note data by ID (query param)
 	const { noteId } = context.params;
 	let note;
+	let isAuthenticated;
 	try {
 		note = await getNote(noteId);
 	} catch (e) {
@@ -40,6 +41,6 @@ export const getServerSideProps = serverSidePropsMiddleware(async context => {
 		};
 	}
 	note = JSON.parse(JSON.stringify(note));
-	return { props: { note } };
+	return { props: { note, isAuthenticated } };
 }, {});
 
