@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 // TODO check with Daniel what setMarkDown function is for
 // TODO check with Daniel why do we need onSearchLink and onClickLink
 
-export const LocalEditor = () => {
+export const LocalEditor = ({ readOnly }) => {
 	const hookedLocalStorage = useLocalStorage();
 	const router = useRouter();
 	const didEdit = useRef(false);
@@ -43,11 +43,11 @@ export const LocalEditor = () => {
 	}, 100);
 
 	return (
-		<div className="GyAeWb">
-			<div className="s6JM6d">
+		<div className='GyAeWb'>
+			<div className='s6JM6d'>
 				<RichMarkdownEditor
-					dir="rtl"
-					placeholder="ספר את הסיפור שלך..."
+					dir='rtl'
+					placeholder='ספר את הסיפור שלך...'
 					disableExtensions={[
 						'highlight',
 						'container_notice',
@@ -55,10 +55,11 @@ export const LocalEditor = () => {
 						'checkbox_list',
 						'checkbox_item',
 					]}
-					autoFocus
+					autoFocus={true}
+					readOnly={readOnly}
 					onChange={onChange}
 					theme={theme}
-					className="gKsMQS"
+					className='gKsMQS'
 					value={hookedLocalStorage?.getItem('saved')}
 					onSearchLink={searchTerm => {
 						const results = this.editor.getHeadings();

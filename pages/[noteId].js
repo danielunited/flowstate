@@ -2,7 +2,8 @@ import { LocalEditor } from '../components/LocalEditor';
 import { ButtonsMenu } from '../components/buttons/ButtonsMenu';
 import { useEffect } from 'react';
 import { serverSidePropsMiddleware } from '../lib/api/middleware';
-import { getNote } from '../lib/api/services/notes.service';
+import { extractCookie } from '../lib/utils/auth';
+const { getNoteAndAuthenticateUser } = require('../lib/api/services/notes.service');
 
 const NoteId = ({ note, isAuthenticated }) => {
 	useEffect(() => {
@@ -13,7 +14,7 @@ const NoteId = ({ note, isAuthenticated }) => {
 
 	return (
 		<>
-			<LocalEditor />
+			<LocalEditor readOnly={!isAuthenticated} />
 			<ButtonsMenu isAuthenticated={isAuthenticated} />
 			{/*<Timer />*/}
 		</>
@@ -23,14 +24,14 @@ const NoteId = ({ note, isAuthenticated }) => {
 export default NoteId;
 
 export const getServerSideProps = serverSidePropsMiddleware(async context => {
-	// get note data by ID (query param)
 	const { noteId } = context.params;
-	let note;
-	try {
-		note = await getNote(noteId);
-	} catch (e) {
-		console.log(e);
-	}
+	const { token } = context.req.cookies;
+	const userData = extractCookie(token);
+	let { note, isAuthenticated } = await getNoteAndAuthenticateUser(
+		noteId,
+		userData.userId,
+		userData.accessToken,
+	);
 	if (!note) {
 		return {
 			redirect: {
@@ -40,6 +41,5 @@ export const getServerSideProps = serverSidePropsMiddleware(async context => {
 		};
 	}
 	note = JSON.parse(JSON.stringify(note));
-	return { props: { note } };
+	return { props: { note, isAuthenticated } };
 }, {});
-
