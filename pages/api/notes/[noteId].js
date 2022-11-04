@@ -10,7 +10,7 @@ const patchHandler = async (req, res) => {
 		throw new Error('Invalid data');
 	}
 	const userData = extractCookie(token);
-	if (!userData) throw new Error('Unauthenticated');
+	if (!userData.userId) throw new Error('Unauthenticated');
 	const fieldsToUpdate = {};
 	if (inProgress) {
 		fieldsToUpdate.inProgress = true;
