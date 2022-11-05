@@ -15,7 +15,7 @@ export const SaveNoteModal = ({ shouldDisplayModal, setShouldDisplayModal, noteI
 	return (
 		<Modal shouldDisplayModal={shouldDisplayModal}>
 			<div className={styles.saveNoteModal}>
-				<img src="/images/close.png" alt="close" onClick={closeModal} className={styles.closePopup}/>
+				<img src="/images/close.png" alt="סגירת מסך שמירה" onClick={closeModal} className={styles.closePopup}/>
 				<h1>הפתק נשמר בהצלחה!</h1>
 				<p>כל אחד עם הקישור יוכל לצפות בקישור, אך רק אתה תוכל לערוך אותו</p>
 				<Link href={`/${noteId}`}>
