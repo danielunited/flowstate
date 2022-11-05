@@ -19,7 +19,7 @@ const colors = {
 
 export const base = {
 	...colors,
-	fontFamily: 'var(--sn-stylekit-sans-serif-font)',
+	fontFamily: "'Noto Sans Hebrew', 'Noto Sans', sans-serif",
 	fontFamilyMono: "'SFMono-Regular',Consolas,'Liberation Mono', Menlo, Courier,monospace",
 	fontWeight: 400,
 	zIndex: 100,

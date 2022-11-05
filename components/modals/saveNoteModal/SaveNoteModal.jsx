@@ -14,13 +14,13 @@ export const SaveNoteModal = ({ shouldDisplayModal, setShouldDisplayModal, noteI
 
 	return (
 		<Modal shouldDisplayModal={shouldDisplayModal}>
+			<img src="/images/close.png" alt="close" onClick={closeModal}/>/>
 			<div className={styles.saveNoteModal}>
-				<p>הפתק נשמר בהצלחה!</p>
+				<h1>הפתק נשמר בהצלחה!</h1>
+				<p>כל אחד עם הקישור יוכל לצפות בקישור, אך רק אתה תוכל לערוך אותו</p>
 				<Link href={`/${noteId}`}>
-					<a>ניתן לגשת לפתק בלחיצה כאן</a>
+					<a>מעבר לפתק</a>
 				</Link>
-				<p>לאחר לחיצה על אישור התוכן בעמוד זה ימחק</p>
-				<Button onClick={closeModal} text="אישור" buttonClassName={styles.submitButton} />
 			</div>
 		</Modal>
 	);

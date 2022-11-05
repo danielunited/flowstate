@@ -8,21 +8,28 @@
     bottom: 0;
     top: 0;
     background-color: hsla(0, 0%, 100%, 0.12);
-    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
     padding: 4rem;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-items: center;
 }
 
 .saveNoteModal {
-    background: #e8a8a8;
-    height: 70%;
-    width: 70%;
-    border-radius: 4px;
-    padding: 0 1rem;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0px 8px 18px rgb(0 0 0 / 8%), 0px 2px 8px rgb(0 0 0 / 12%);
+    margin: auto;
 }
 
-.submitButton {
-    position: absolute;
+.goToNote {
+    background: #000;
+	border: 0;
+	padding: 16px 24px;
+	border-radius: 8px;
+	color: white;
+	width: 100%;
+	margin-top: 25px;
 }
