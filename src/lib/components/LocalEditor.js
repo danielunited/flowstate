@@ -35,7 +35,7 @@ class ImageEmbed extends React.Component {
 export default class LocalEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { theme };
     this.editor = null;
 
     this.setEditorRef = (el) => {
@@ -56,6 +56,27 @@ export default class LocalEditor extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    const newTextColor = this.props.textColor;
+    const oldTextColor = prevProps.textColor;
+
+    if (newTextColor !== oldTextColor) {
+        if (newTextColor == null) {
+            this.setState({ theme });
+        } else {
+            this.setState({ theme: { ...theme, text: newTextColor } });
+        }
+    }
+
+    if (prevProps.defaultValue !== "" && this.props.defaultValue === "") {
+        // Reset editor
+        this.setState({
+            key: Math.floor(Math.random() * 999999999),
+        });
+    }
+  }
+
+
   updateMarkdown() {
     let markdown = this.state.note.content.text.replace(/(\n{2})(\n+)(?!:::)(?!---)/g, (m, p, q) => p + q.replace(/(\n)/g, "\\$1"));
     if (markdown === "") {
@@ -66,10 +87,13 @@ export default class LocalEditor extends React.Component {
 
   onChange = debounce((value) => {
     const text = value();
-    localStorage.setItem("saved", text);
+    if (this.props.useLocalStorage) {
+        localStorage.setItem("saved", text);
+    }
     let note = this.state.note;
     // note.content.text = text;
     this.setState({ note: note });
+    this.props.onChange && this.props.onChange(text);
     BridgeManager.get().save();
   });
 
@@ -85,15 +109,21 @@ export default class LocalEditor extends React.Component {
       <div className="GyAeWb">
         <div className="s6JM6d">
           <RichMarkdownEditor
+            key={this.state.key}
+            readOnly={this.props.readOnly}
             dir="rtl"
             placeholder="ספר את הסיפור שלך..."
             disableExtensions={["highlight", "container_notice", "table", "checkbox_list", "checkbox_item"]}
             ref={this.setEditorRef}
-            defaultValue={localStorage.getItem("saved") || undefined}
+            defaultValue={
+                this.props.useLocalStorage
+                    ? localStorage.getItem("saved") || undefined
+                    : this.props.defaultValue
+            }
             // value={this.state.markdown}
             autoFocus
             onChange={this.onChange.bind(this)}
-            theme={theme}
+            theme={this.state.theme}
             className="gKsMQS"
             onSearchLink={(searchTerm) => {
               const results = this.editor.getHeadings();
