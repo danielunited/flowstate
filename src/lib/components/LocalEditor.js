@@ -3,7 +3,7 @@ import { debounce } from "lodash";
 import RichMarkdownEditor from "flowstate-editor";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import BridgeManager from "../BridgeManager";
-import theme from "../theme";
+import {dark, light} from "../theme";
 
 class TwitterEmbed extends React.Component {
   render() {
@@ -35,7 +35,7 @@ class ImageEmbed extends React.Component {
 export default class LocalEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { theme };
+    this.state = { theme: this.getTheme(), dir: "rtl" };
     this.editor = null;
 
     this.setEditorRef = (el) => {
@@ -62,9 +62,9 @@ export default class LocalEditor extends React.Component {
 
     if (newTextColor !== oldTextColor) {
         if (newTextColor == null) {
-            this.setState({ theme });
+            this.setState({ theme: this.getTheme() });
         } else {
-            this.setState({ theme: { ...theme, text: newTextColor } });
+            this.setState({ theme: { ...this.getTheme(), text: newTextColor } });
         }
     }
 
@@ -95,6 +95,18 @@ export default class LocalEditor extends React.Component {
     this.setState({ note: note });
     this.props.onChange && this.props.onChange(text);
     BridgeManager.get().save();
+
+    const isTwoWords = text.split(" ").length === 2;
+ 
+		if (!isTwoWords) return;
+
+		const hasOnlyLatinChars = !!text.split(" ")[0].match(/^[a-z]*$/i);
+
+		if (hasOnlyLatinChars) {
+			this.setState({dir: "ltr"});
+		} else {
+      this.setState({dir: "rtl"});
+		}
   });
 
   getNoteContents() {
@@ -104,6 +116,14 @@ export default class LocalEditor extends React.Component {
     return "";
   }
 
+  getTheme() {
+    if(window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      return dark;
+    } else {
+      return light;
+    }
+  }
+
   render() {
     return (
       <div className="GyAeWb">
@@ -111,7 +131,7 @@ export default class LocalEditor extends React.Component {
           <RichMarkdownEditor
             key={this.state.key}
             readOnly={this.props.readOnly}
-            dir="rtl"
+            dir={this.state.dir}
             placeholder="ספר את הסיפור שלך..."
             disableExtensions={["highlight", "container_notice", "table", "checkbox_list", "checkbox_item"]}
             ref={this.setEditorRef}
