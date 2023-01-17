@@ -97,7 +97,7 @@ export default class LocalEditor extends React.Component {
     BridgeManager.get().save();
 
 
-    if (text.length === 0) {
+    if (text.trim().length === 0) {
       this.setState({dir: "rtl"});
     }
 
