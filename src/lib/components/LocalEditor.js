@@ -96,9 +96,13 @@ export default class LocalEditor extends React.Component {
     this.props.onChange && this.props.onChange(text);
     BridgeManager.get().save();
 
-    const isTwoWords = text.split(" ").length === 2;
- 
-		if (!isTwoWords) return;
+
+    if (text.length === 0) {
+      this.setState({dir: "rtl"});
+    }
+
+    const hasText = text.length > 0;
+		if (!hasText) return;
 
 		const hasOnlyLatinChars = !!text.split(" ")[0].match(/^[a-z]*$/i);
 
