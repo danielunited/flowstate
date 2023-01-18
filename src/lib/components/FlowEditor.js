@@ -6,7 +6,16 @@ import { Document, Paragraph, TextRun, Packer } from "docx";
 import DownloadPopup from "./DownloadPopup";
 import { useNavigate } from "react-router-dom";
 
-const TEXT_COLOR = "#454545";
+
+
+const isDarkMode = () => {
+	if (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) {
+		return true;
+	} else {
+		return false;
+	}
+}
+const TEXT_COLOR = isDarkMode() ? '#E6E6E6' : "#454545";
 const SECONDS_IN_MINUTE = 60;
 
 const opacityToColor = opacity => {
@@ -74,8 +83,6 @@ export default function FlowEditor() {
 	if (secondsRemaining <= 0 && note.length > 0) {
 		return <DownloadPopup onDownload={() => downloadWordDoc(note).then(() => navigate("/"))} />;
 	}
-
-	console.log({ note });
 
 	return (
 		<>

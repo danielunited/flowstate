@@ -1,7 +1,7 @@
 import React from "react";
 import save from "./save.PNG";
 
-export default class FlowButton extends React.Component {
+export default class SaveButton extends React.Component {
 	render() {
 		return (
 			<button onClick={this.props.onClick} className="app-button">
