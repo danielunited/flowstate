@@ -21,7 +21,7 @@
     "sass": "^1.54.8",
     "sn-components-api": "^1.2.8",
     "sn-stylekit": "^2.2.1",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.6"
   },
   "scripts": {
     "start": "react-scripts start",
