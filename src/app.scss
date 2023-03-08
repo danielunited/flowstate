@@ -25,19 +25,11 @@ html {
   width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #181a1b;
-  }
-}
-
 @media (prefers-color-scheme: light) {
   body {
-    background-color: transparent
+    background-color: transparent;
   }
 }
-
-
 
 body {
   font-family: var(--sn-stylekit-sans-serif-font);
@@ -266,4 +258,29 @@ img {
 
 p {
   transition: all 1000ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #181a1b;
+  }
+  .app-button-container .app-button {
+    align-items: center;
+    background: #00000036;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 20%);
+    display: flex;
+    height: 48px;
+    filter: invert(1);
+    margin-top: 12px;
+    padding: 12px;
+    transition: all 0.12s ease;
+    width: 48px;
+    will-change: transform;
+    box-shadow: none;
+  }
+  .app-button-container .app-button:hover {
+    background: #cccccc;
+  }
 }
