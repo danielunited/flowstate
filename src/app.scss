@@ -263,9 +263,9 @@ p {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #181a1b;
-  }
-  p {
-    caret-color: white;
+    * {
+      caret-color: white;
+    }
   }
   .app-button-container .app-button {
     align-items: center;
