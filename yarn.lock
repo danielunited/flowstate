@@ -3479,10 +3479,10 @@ bser@2.1.1:
   dependencies:
     node-int64 "^0.4.0"
 
-bson@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/bson/-/bson-4.7.0.tgz#7874a60091ffc7a45c5dd2973b5cad7cded9718a"
-  integrity sha512-VrlEE4vuiO1WTpfof4VmaVolCVYkYTgB9iWgYNOrVlnifpME/06fhFRmONgBhClD5pFC1t9ZWqFUQEQAzY43bA==
+bson@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-4.7.2.tgz#320f4ad0eaf5312dd9b45dc369cc48945e2a5f2e"
+  integrity sha512-Ry9wCtIZ5kGqkJoi6aD8KjxFZEx78guTQDnpXWiNthsxzrxAK/i8E6pCHAIZTbaEFWcOCvbecMukfK7XUvyLpQ==
   dependencies:
     buffer "^5.6.0"
 
@@ -6885,12 +6885,12 @@ mongodb-connection-string-url@^2.5.4:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@^4.13.0:
-  version "4.13.0"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.13.0.tgz#2aa832b827e2891eb2e52e8235c201cbb4701ed2"
-  integrity sha512-+taZ/bV8d1pYuHL4U+gSwkhmDrwkWbH1l4aah4YpmpscMwgFBkufIKxgP/G7m87/NUuQzc2Z75ZTI7ZOyqZLbw==
+mongodb@^4.15.0:
+  version "4.16.0"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.16.0.tgz#8b0043de7b577c6a7e0ce44a2ca7315b9c0a7927"
+  integrity sha512-0EB113Fsucaq1wsY0dOhi1fmZOwFtLOtteQkiqOXGklvWMnSH3g2QS53f0KTP+/6qOkuoXE2JksubSZNmxeI+g==
   dependencies:
-    bson "^4.7.0"
+    bson "^4.7.2"
     mongodb-connection-string-url "^2.5.4"
     socks "^2.7.1"
   optionalDependencies:
