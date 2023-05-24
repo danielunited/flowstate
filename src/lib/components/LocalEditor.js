@@ -3,7 +3,7 @@ import { debounce } from "lodash";
 import RichMarkdownEditor from "flowstate-editor";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import BridgeManager from "../BridgeManager";
-import {dark, light} from "../theme";
+import { dark, light } from "../theme";
 
 class TwitterEmbed extends React.Component {
   render() {
@@ -61,21 +61,20 @@ export default class LocalEditor extends React.Component {
     const oldTextColor = prevProps.textColor;
 
     if (newTextColor !== oldTextColor) {
-        if (newTextColor == null) {
-            this.setState({ theme: this.getTheme() });
-        } else {
-            this.setState({ theme: { ...this.getTheme(), text: newTextColor } });
-        }
+      if (newTextColor == null) {
+        this.setState({ theme: this.getTheme() });
+      } else {
+        this.setState({ theme: { ...this.getTheme(), text: newTextColor } });
+      }
     }
 
     if (prevProps.defaultValue !== "" && this.props.defaultValue === "") {
-        // Reset editor
-        this.setState({
-            key: Math.floor(Math.random() * 999999999),
-        });
+      // Reset editor
+      this.setState({
+        key: Math.floor(Math.random() * 999999999),
+      });
     }
   }
-
 
   updateMarkdown() {
     let markdown = this.state.note.content.text.replace(/(\n{2})(\n+)(?!:::)(?!---)/g, (m, p, q) => p + q.replace(/(\n)/g, "\\$1"));
@@ -88,7 +87,7 @@ export default class LocalEditor extends React.Component {
   onChange = debounce((value) => {
     const text = value();
     if (this.props.useLocalStorage) {
-        localStorage.setItem("saved", text);
+      localStorage.setItem("saved", text);
     }
     let note = this.state.note;
     // note.content.text = text;
@@ -96,21 +95,20 @@ export default class LocalEditor extends React.Component {
     this.props.onChange && this.props.onChange(text);
     BridgeManager.get().save();
 
-
     if (text.trim().length === 0) {
-      this.setState({dir: "rtl"});
+      this.setState({ dir: "rtl" });
     }
 
     const hasText = text.length > 0;
-		if (!hasText) return;
+    if (!hasText) return;
 
-		const hasOnlyLatinChars = !!text.split(" ")[0].match(/^[a-z]*$/i);
+    const hasOnlyLatinChars = !!text.split(" ")[0].match(/^[a-z]*$/i);
 
-		if (hasOnlyLatinChars) {
-			this.setState({dir: "ltr"});
-		} else {
-      this.setState({dir: "rtl"});
-		}
+    if (hasOnlyLatinChars) {
+      this.setState({ dir: "ltr" });
+    } else {
+      this.setState({ dir: "rtl" });
+    }
   });
 
   getNoteContents() {
@@ -121,7 +119,7 @@ export default class LocalEditor extends React.Component {
   }
 
   getTheme() {
-    if(window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
       return dark;
     } else {
       return light;
@@ -139,11 +137,7 @@ export default class LocalEditor extends React.Component {
             placeholder="ספר את הסיפור שלך..."
             disableExtensions={["highlight", "container_notice", "table", "checkbox_list", "checkbox_item"]}
             ref={this.setEditorRef}
-            defaultValue={
-                this.props.useLocalStorage
-                    ? localStorage.getItem("saved") || undefined
-                    : this.props.defaultValue
-            }
+            defaultValue={this.props.useLocalStorage ? localStorage.getItem("saved") || undefined : this.props.defaultValue}
             // value={this.state.markdown}
             autoFocus
             onChange={this.onChange.bind(this)}
