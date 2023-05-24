@@ -94,3 +94,53 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+// Animation CSS
+
+.focus-popup-container {
+  transition: background 0.5s ease-in-out;
+}
+body.open-focus-popup .focus-popup-container {
+  background: rgb(0 0 0 / 62%);
+}
+
+@keyframes float-up {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.focus-popup-content-container {
+  animation: float-up 0s ease-in-out forwards;
+}
+
+@keyframes float-down {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+}
+
+.focus-popup-container {
+  transition: background 0.5s ease-in-out;
+}
+
+body.open-focus-popup .focus-popup-container {
+  background: rgb(0 0 0 / 62%);
+}
+
+.focus-popup-content-container {
+  animation: float-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.closing-focus-popup .focus-popup-content-container {
+  animation: float-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
