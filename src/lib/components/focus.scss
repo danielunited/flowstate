@@ -98,7 +98,7 @@ input:focus {
 // Animation CSS
 
 .focus-popup-container {
-  transition: background 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 body.open-focus-popup .focus-popup-container {
   background: rgb(0 0 0 / 62%);
@@ -143,4 +143,22 @@ body.open-focus-popup .focus-popup-container {
 
 body.closing-focus-popup .focus-popup-content-container {
   animation: float-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.timer-display {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: black;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 2px -1px rgba(255, 255, 255, 0.36), inset 0 1px 2px -1px rgba(255, 255, 255, 0.36);
+}
+
+@media (prefers-color-scheme: dark) {
+  .timer-display {
+    color: white;
+    background: #1e1e1e;
+  }
 }

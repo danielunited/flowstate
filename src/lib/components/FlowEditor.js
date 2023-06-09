@@ -43,7 +43,6 @@ const downloadWordDoc = async (note) => {
 
 export default function FlowEditor() {
   const [isPopupOpen, setIsPopupOpen] = useState(true);
-  const [isPopupClosed, setIsPopupClosed] = useState(false);
   const [minutes, setMinutes] = useState();
   const [secondsRemaining, setSecondsRemaining] = useState();
   const [secondsWithoutTyping, setSecondsWithoutTyping] = useState(0);
@@ -52,26 +51,39 @@ export default function FlowEditor() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const typingTimer = setInterval(() => {
+      setSecondsWithoutTyping((prev) => prev + 1);
+    }, 1000);
+
+    const remainingTimer = setInterval(() => {
+      setSecondsRemaining((prev) => prev - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(typingTimer);
+      clearInterval(remainingTimer);
+    };
+  }, []);
+
+  useEffect(() => {
     if (secondsRemaining >= 0 && secondsWithoutTyping === 9) {
       setNote("");
       setSecondsRemaining(minutes * SECONDS_IN_MINUTE);
+      setSecondsWithoutTyping(0);
     }
-  }, [secondsWithoutTyping]);
+  }, [secondsWithoutTyping, minutes, secondsRemaining]);
 
   useEffect(() => {
     if (isPopupOpen) {
       document.body.classList.add("open-focus-popup");
     } else {
-      if (!isPopupClosed) {
-        document.body.classList.remove("open-focus-popup");
-      } else {
-        document.body.classList.add("closing-focus-popup");
-        setTimeout(() => {
-          document.body.classList.remove("closing-focus-popup");
-        }, 500);
-      }
+      document.body.classList.remove("open-focus-popup");
+      document.body.classList.add("closing-focus-popup");
+      setTimeout(() => {
+        document.body.classList.remove("closing-focus-popup");
+      }, 500);
     }
-  }, [isPopupOpen, isPopupClosed]);
+  }, [isPopupOpen]);
 
   if (isPopupOpen) {
     return (
@@ -89,6 +101,8 @@ export default function FlowEditor() {
     return <DownloadPopup onDownload={() => downloadWordDoc(note).then(() => navigate("/"))} />;
   }
 
+  const timeRemaining = `${Math.floor(secondsRemaining / 60)}:${(secondsRemaining % 60).toString().padStart(2, "0")} דקות נשארו`;
+
   return (
     <>
       <LocalEditor
@@ -99,6 +113,7 @@ export default function FlowEditor() {
           setSecondsWithoutTyping(0);
         }}
       />
+      <div className="timer-display">{timeRemaining}</div>
     </>
   );
 }
