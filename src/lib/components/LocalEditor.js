@@ -26,9 +26,9 @@ class YoutubeEmbed extends React.Component {
 class ImageEmbed extends React.Component {
   render() {
     const { attrs } = this.props;
-    const imageUrl = attrs.matches[1];
+    const imageUrl = attrs.matches[0];
 
-    return { imageUrl };
+    return <img src={imageUrl} />;
   }
 }
 
