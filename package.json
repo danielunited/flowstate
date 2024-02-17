@@ -16,7 +16,7 @@
     "react-dom": "^16.14.0",
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.1",
-    "react-timer-hook": "^3.0.5",
+    "react-timer-hook": "^3.0.6",
     "react-twitter-embed": "^4.0.4",
     "sass": "^1.54.8",
     "sn-components-api": "^1.2.8",
