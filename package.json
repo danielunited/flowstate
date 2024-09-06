@@ -4,7 +4,7 @@
   "homepage": "https://flowstate.co.il/",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.1.6",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^14.4.2",
     "docx": "^7.8.2",
@@ -21,7 +21,7 @@
     "sass": "^1.54.8",
     "sn-components-api": "^1.2.8",
     "sn-stylekit": "^2.2.1",
-    "styled-components": "^5.3.8"
+    "styled-components": "^6.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
