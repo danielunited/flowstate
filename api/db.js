@@ -1,33 +1,55 @@
-const { nanoid } = require('nanoid');
-const { MongoClient } = require('mongodb');
+/*
+  Updated db.js to use Cloudflare KV instead of MongoDB
+*/
 
-const MONGO_CONNECTION_URL = process.env.MONGO_CONNECTION_URL;
+// Export functions for note operations using Cloudflare KV
+module.exports = {
+  getNotes,
+  getNote,
+  saveNote,
+  deleteNote
+};
 
-const dbName = 'flowstate';
+// Retrieve all notes from Cloudflare KV
+async function getNotes() {
+  if (typeof NOTES_KV === 'undefined') {
+    throw new Error('Cloudflare KV binding (NOTES_KV) is not configured.');
+  }
+  const { keys } = await NOTES_KV.list({ prefix: 'note:' });
+  const notes = await Promise.all(keys.map(async (key) => {
+    const value = await NOTES_KV.get(key.name);
+    return JSON.parse(value);
+  }));
+  return notes;
+}
 
-export class dbClient {
-	constructor() {
-		this.client = new MongoClient(MONGO_CONNECTION_URL);
-		this.client.connect();
-		this.db = this.client.db(dbName);
-		this.notesCollection = this.db.collection('notes');
-	}
+// Retrieve a single note by id
+async function getNote(id) {
+  if (typeof NOTES_KV === 'undefined') {
+    throw new Error('Cloudflare KV binding (NOTES_KV) is not configured.');
+  }
+  const value = await NOTES_KV.get(`note:${id}`);
+  if (!value) return null;
+  return JSON.parse(value);
+}
 
-	createNote = text => {
-		const _id = nanoid();
-		const editKey = nanoid();
+// Save a note. Generates a new id using Date.now() if not provided.
+async function saveNote(note) {
+  if (typeof NOTES_KV === 'undefined') {
+    throw new Error('Cloudflare KV binding (NOTES_KV) is not configured.');
+  }
+  if (!note.id) {
+    note.id = Date.now().toString();
+  }
+  await NOTES_KV.put(`note:${note.id}`, JSON.stringify(note));
+  return note;
+}
 
-		return this.notesCollection.insertOne({ _id, editKey, text }).then(res => {
-			if (res.acknowledged) {
-				return { id: _id, editKey };
-			}
-			throw new Error(`Error inserting note: ${text}`);
-		});
-	};
-
-	getNote = _id => this.notesCollection.findOne({ _id });
-
-	updateNote = (_id, text) => this.notesCollection.updateOne({ _id }, { $set: { text } });
-
-	close = () => this.client.close();
+// Delete a note by id
+async function deleteNote(id) {
+  if (typeof NOTES_KV === 'undefined') {
+    throw new Error('Cloudflare KV binding (NOTES_KV) is not configured.');
+  }
+  await NOTES_KV.delete(`note:${id}`);
+  return true;
 }
