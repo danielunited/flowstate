@@ -1,9 +1,11 @@
 name = "flowstate"
+account_id = "d07dc516f73eaf2abbf308b1ac73c30f"
+workers_dev = true
 
 type = "javascript"
 
-account_id = "d07dc516f73eaf2abbf308b1ac73c30f"
-workers_dev = true
+pages_build_command = "yarn build"
+pages_build_output_dir = "build"
 
 kv_namespaces = [
   { binding = "NOTES_KV", id = "527abf0d42c94c08ac7efcc26908e631" }
