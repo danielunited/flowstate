@@ -1,0 +1,10 @@
+name = "flowstate"
+
+type = "javascript"
+
+account_id = "d07dc516f73eaf2abbf308b1ac73c30f"
+workers_dev = true
+
+kv_namespaces = [
+  { binding = "NOTES_KV", id = "527abf0d42c94c08ac7efcc26908e631" }
+]
