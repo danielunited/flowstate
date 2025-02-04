@@ -49,5 +49,11 @@
   },
   "engines": {
     "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "autoprefixer": "^10.4.20",
+    "prop-types": "^15.8.1",
+    "react-is": "^19.0.0"
   }
 }
