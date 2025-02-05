@@ -1,47 +1,50 @@
-import { dbClient } from "../db";
+import * as db from '../db.js';
 
-export default async function note(req, res) {
-	switch (req.method) {
-		case "GET": {
-			const { id } = req.query;
+export async function onRequest(context) {
+  const { request, params } = context;
+  const id = params.id;
+  const headers = {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type'
+  };
 
-			if (id == null) {
-				res.status(400).send();
-				return;
-			}
+  // Handle CORS preflight
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers });
+  }
 
-			const db = new dbClient();
-			const note = await db.getNote(id);
-			db.close();
+  try {
+    switch (request.method) {
+      case 'GET': {
+        const note = await db.getNote(id);
+        if (!note) {
+          return new Response(JSON.stringify({ error: 'Note not found' }), { status: 404, headers });
+        }
+        return new Response(JSON.stringify({ id, text: note.text }), { status: 200, headers });
+      }
 
-			if (note == null) {
-				res.status(400).send();
-				return;
-			}
+      case 'POST': {
+        const { editKey, text } = await request.json();
+        const note = await db.getNote(id);
 
-			res.json({ id, text: note.text }).send();
-			break;
-		}
-		case "POST": {
-			const { id } = req.query;
-			const { editKey, text } = req.body;
+        if (!note || note.editKey !== editKey) {
+          return new Response(JSON.stringify({ error: 'Note not found or invalid edit key' }), { status: 400, headers });
+        }
 
-			const db = new dbClient();
+        const updated = await db.updateNote(id, text);
+        return new Response(JSON.stringify(updated), { status: 200, headers });
+      }
 
-			const note = await db.getNote(id);
-
-			if (note == null || note.editKey !== editKey) {
-				res.status(400).send();
-				return;
-			}
-
-			await db.updateNote(id, text);
-			db.close();
-
-			res.status(200).send();
-			break;
-		}
-		default:
-			res.status(400).send();
-	}
+      default: {
+        return new Response(JSON.stringify({ error: `Method ${request.method} Not Allowed` }), {
+          status: 405,
+          headers: { ...headers, Allow: 'GET, POST, OPTIONS' }
+        });
+      }
+    }
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), { status: 500, headers });
+  }
 }
